@@ -48,8 +48,8 @@ If not everything seems to be installed correctly, you'll need to remove and rei
 
 * Samples: can usually be found under %Documents%\Blaise5\Samples\API\DataEntry\MVC
 * Technical documentation 
-** Current release: http://help.blaise.com/angular
-** Previous releases: http://help.blaise.com/angular/[version] e.g. 5.6.5
+    * Current release: http://help.blaise.com/angular
+    * Previous releases: http://help.blaise.com/angular/[version] e.g. 5.6.5
 
 ## Building your custom application
 
