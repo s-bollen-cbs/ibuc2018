@@ -3,9 +3,7 @@
 ## Prerequisites
 
 * Code/Text editor
-
 * Blaise 5.5 or higher
-
 * `NodeJS latest LTS` ([Download](https://nodejs.org/en/))
 * `NPM latest LTS` (installed alongside NodeJS, but updated more frequently)
 * `rimraf >= 2.6.2` (*optional*, install globally after NPM using "npm install rimraf -g" in a terminal)
@@ -45,6 +43,13 @@ Make sure your package.json file is up to date. You can find the latest version 
 The first command will remove all installed dependencies. The second command will reinstall them using the version specified by Blaise in the package.json and, more importantly, this will grab the latest Blaise core package from the release and reinstall it into your custom application. Remember to **always** run these commands after you download a new Blaise release or upgrade to a new version of Blaise.
 
 If not everything seems to be installed correctly, you'll need to remove and reinstall every dependency from scratch using the above commands.
+
+## Provided by Blaise
+
+* Samples: can usually be found under %Documents%\Blaise5\Samples\API\DataEntry\MVC
+* Technical documentation 
+** Current release: http://help.blaise.com/angular
+** Previous releases: http://help.blaise.com/angular/[version] e.g. 5.6.5
 
 ## Building your custom application
 
