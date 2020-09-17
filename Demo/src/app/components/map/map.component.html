@@ -1,0 +1,32 @@
+<div
+     #autoWidthElement
+     #autoHeightElement
+     [attr.id]="controlId"
+     [ngClass]="cssClass"
+     [ngStyle]="style">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoomLevel" [usePanning]="true" (mapClick)="clickedMap($event)">
+        <ng-template [ngIf]="showUserLocation" [ngIfElse]="showTheaters">
+            <ng-template [ngIf]="userMarker">
+                <agm-marker
+                    [latitude]="userMarker.latitude"
+                    [longitude]="userMarker.longitude"
+                    [markerDraggable]="userMarker.draggable"
+                    (dragEnd)="droppedMarker($event)">
+                </agm-marker>
+            </ng-template>
+        </ng-template>
+        <ng-template #showTheaters>
+            <agm-marker 
+                *ngFor="let m of markers$ | async; let i = index"
+                (markerClick)="clickedMarker(m, i)"
+                [latitude]="m.latitude"
+                [longitude]="m.longitude"
+                [label]="m.label"
+                [title]="m.title"
+                [markerDraggable]="m.draggable"
+                [markerClickable]="!showUserLocation">
+            </agm-marker>
+        </ng-template>
+    </agm-map>
+    <input #inputcontrol class="textValue" [value]="infoText" readonly>
+</div>

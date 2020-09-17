@@ -1,0 +1,13 @@
+<ng-template [ngIf]="text">
+     <div #autoWidthElement
+          #autoHeightElement
+          [@showHide]="isShownStr"
+          [ngClass]="cssClass"
+          [ngStyle]="style"
+          [attr.id]="controlId"
+          [attr.for]="labelFor"
+          [bl5Aria]="ariaObject"
+          [bl5Tooltip]="dataObject.Tooltip"
+          [bl5MouseEvent]="dataObject"
+          [innerHTML]="text | safeHtml"></div>
+</ng-template>
