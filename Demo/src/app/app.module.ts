@@ -13,7 +13,7 @@ import { CustomModelService } from './services/custom-model/custom-model.service
 import { CustomActionService } from './services/custom-action/custom-action.service';
 import { MapService } from './services/map/map.service';
 // Custom components
-import { AppComponent } from './components/app/app.component';
+import { AppComponent } from './app.component';
 import { HelpTextComponent } from './components/help-text/help-text.component';
 import { MapComponent } from './components/map/map.component';
 
