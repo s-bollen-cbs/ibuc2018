@@ -2,8 +2,12 @@
 
 ## Prerequisites
 
-* `NodeJS >= v8.x` ([Download](https://nodejs.org/en/))
-* `NPM >= v5.x` (installed alongside NodeJS, but updated more frequently)
+* Code/Text editor
+
+* Blaise 5.5 or higher
+
+* `NodeJS latest LTS` ([Download](https://nodejs.org/en/))
+* `NPM latest LTS` (installed alongside NodeJS, but updated more frequently)
 * `rimraf >= 2.6.2` (*optional*, install globally after NPM using "npm install rimraf -g" in a terminal)
 
 You can check your current NodeJS and NPM versions by opening a terminal and running the following commands:
