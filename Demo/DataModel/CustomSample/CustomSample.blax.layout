@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutSpecification xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="CustomSurvey" Version="10" GenerateAllSections="true" GenerateClientRules="false" UseGenericPages="false">
+  <Languages>
+    <Language Name="" />
+  </Languages>
+  <LayoutSets>
+    <LayoutSet Name="CAPI-Large" ResourceSetName="Large" StyleName="Indigo" RequiredStyle="false" DesignHeight="768" DesignWidth="1024" ResizeMode="Auto" RouteItemsPerPage="5" RowsPerTable="999" ConditionAsString="Client.Width &gt; 1024" ReceiptPageName="Default" IntroPageName="" AbortPageName="">
+      <InstanceLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="MovieExperience.Discount">
+          <Instructions>
+            <NewPageInstruction Locator="Before" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="MovieExperience.Movie">
+          <Instructions>
+            <NewPageInstruction Locator="Before" />
+            <TemplateInstruction TemplateName="DropDownList" TemplateTarget="DataValue" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="MovieExperience.MovieTheatre">
+          <Instructions>
+            <TemplateInstruction TemplateName="MapControl" TemplateTarget="ResponseValue" Parameters="{ParameterValues Zoom='8';Latitude='52.066041';Longitude='4.400356'}" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="MovieExperience.Travel">
+          <Instructions>
+            <NewPageInstruction Locator="Before" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="MovieExperience.ViewDate">
+          <Instructions>
+            <NewPageInstruction Locator="Before" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="Person.Town">
+          <Instructions>
+            <TemplateInstruction TemplateName="MapControl" TemplateTarget="ResponseValue" Parameters="{ParameterValues ShowUserLocation='True';Zoom='12';Latitude='52.066041';Longitude='4.400356'}" />
+            <NewPageInstruction Locator="Before" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="Person">
+          <Instructions>
+            <NewPageInstruction Locator="Before" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+        <RouteItemLayoutInstructions RouteItemName="MovieExperience">
+          <Instructions>
+            <NewPageInstruction Locator="Before" />
+          </Instructions>
+        </RouteItemLayoutInstructions>
+      </InstanceLayoutInstructions>
+      <Parallels>
+        <Parallel Name="">
+          <IsGeneric>false</IsGeneric>
+        </Parallel>
+        <Parallel Name="PRIMARY">
+          <IsGeneric>false</IsGeneric>
+        </Parallel>
+      </Parallels>
+    </LayoutSet>
+  </LayoutSets>
+  <LayoutSetGroups>
+    <LayoutSetGroup Name="CAPI" DataEntrySettingsName="StrictInterviewing">
+      <LayoutSetNames>
+        <string>CAPI-Large</string>
+      </LayoutSetNames>
+    </LayoutSetGroup>
+  </LayoutSetGroups>
+  <RoleReferences>
+    <RoleReference Name="Help" MappedTextRole="Help" />
+    <RoleReference Name="Watermark" MappedTextRole="Watermark" />
+    <RoleReference Name="ToolTip" MappedTextRole="ToolTip" />
+    <RoleReference Name="SpecialAnswer" />
+    <RoleReference Name="CategoryGroup" />
+    <RoleReference Name="EditMask" MappedTextRole="EditMask" />
+  </RoleReferences>
+  <TypeReferences>
+    <TypeReference Name="THeader" />
+    <TypeReference Name="TCurrency" />
+  </TypeReferences>
+  <LayoutSpecFieldReferences xmlns="layoutspec">
+    <LayoutSpecFieldReference Name="RespondentTimeZone" />
+    <LayoutSpecFieldReference Name="RespondentTime" />
+    <LayoutSpecFieldReference Name="MainSurveyName" />
+    <LayoutSpecFieldReference Name="InstrumentID" />
+    <LayoutSpecFieldReference Name="InterviewerID" />
+    <LayoutSpecFieldReference Name="CaseID" />
+  </LayoutSpecFieldReferences>
+</LayoutSpecification>

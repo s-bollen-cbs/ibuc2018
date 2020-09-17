@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="customsample" Guid="c6609d88-af27-4967-b2ae-f74c83ba507b" ProjectType="DatamodelProject">
+  <MainFile RelativePath="true">CustomSample.blax</MainFile>
+  <FileItems>
+    <File FileType="DatamodelFileType" RelativePath="true">CustomSample.blax</File>
+    <File FileType="ResourceDatabaseFileType" RelativePath="true">CustomSample.blrd</File>
+    <File FileType="PackageSpecificationFileType" RelativePath="true">CustomSample.bcps</File>
+  </FileItems>
+  <Properties>
+    <IncludeSearchPath />
+    <LibrarySearchPath />
+    <DatamodelSearchPath />
+    <ResourceDB RelativePath="true">CustomSample.blrd</ResourceDB>
+    <SupportedModes />
+    <UsedResourceSets />
+    <ConditionalDefines />
+    <ExternalSearchPath />
+    <SurveyRoot />
+    <CatiRole />
+    <IsRunnableSurvey>True</IsRunnableSurvey>
+    <WebDataEntryClient>MvcDebug</WebDataEntryClient>
+    <AppSupport />
+    <UseCari>False</UseCari>
+    <IgnoreLayoutErrors>False</IgnoreLayoutErrors>
+    <IgnoreRichtextErrors>False</IgnoreRichtextErrors>
+    <AddFieldGroupOrderInformation>False</AddFieldGroupOrderInformation>
+    <StartCondition />
+    <ActionsSetup />
+    <DownloadInterceptorSetup />
+    <WriteInterceptorSetup />
+    <RunWriteInterceptorSetupAsynchronously>False</RunWriteInterceptorSetupAsynchronously>
+  </Properties>
+</Project>

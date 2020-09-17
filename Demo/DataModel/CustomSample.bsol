@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Solution Name="CustomSample">
+  <StartupProject RelativePath="true">CustomSample\CustomSample.bproj</StartupProject>
+  <ProjectItems>
+    <Project RelativePath="true" BuildSequence="2">CustomSample\CustomSample.bproj</Project>
+  </ProjectItems>
+</Solution>

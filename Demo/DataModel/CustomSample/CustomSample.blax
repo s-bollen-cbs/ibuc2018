@@ -1,0 +1,122 @@
+﻿DATAMODEL CustomSurvey "Movie Experience Survey"
+
+  PRIMARY
+     Person.IDNumber
+     
+  ROLES = Help "The Help role provides a help button that the user can click to display question help text.", 
+          Watermark "The Watermark role provides a hint to the user as to what input elements are used for.",
+          ToolTip "The ToolTip role provides a popup hint when the user hovers over a control.",
+          Template "Apply layout templates automatically",
+          EditMask "An EditMask allows you to specify an input mask for automatic input formatting and validation."
+          
+  FIELDPROPERTIES
+    Remark : OPEN
+
+  TYPE
+      TYesNo = (Yes "Yes, please", No "No, not necessarily"), DONTKNOW
+      TMovies = (Endless "Endless", TheSecret "The Secret: Dare to Dream", TheWar "The War with Grandpa", Petla "Petla", Antebellum "Antebellum", NewMutants "TheNewMutants", Misbehaviour "Misbehaviour", Tenet "TeNet"), RF
+
+  BLOCK BPerson
+    FIELDS
+      IDNumber "What is your national identification number?" 
+        Help "The national identification number is used by the government as a means of tracking their citizens, 
+           <newline>permanent residents, and temporary residents for the purposes of work, taxation, government benefits, 
+           <newline>health care, and other governmentally-related functions.
+           <newline count=2>The unique number appears on identity documents such as driving licenses, passports and 
+           international ID cards." : 1..999999
+      FirstName "What is your name?" 
+        Help "Please enter your first name" 
+        Watermark "First Name" 
+        ToolTip "What is your first (given) name?" : STRING[20]
+      LastName "What is your last name?" 
+        Help "Please enter your family name. 
+              <newline>Your privacy is guaranteed. Your name is only important to provide good service." 
+        ToolTip "What is your last (family) name?" : STRING[20]
+      PhoneNumber "What is your phone number?" 
+        EditMask "(999)999-99-99" 
+        Watermark "(999)999-99-99" : STRING[14], REFUSAL
+      DateofBirth "When is your birthday?"
+        ToolTip "Please select your birth date" : DATETYPE
+      Town "Where do you live?": STRING, EMPTY
+    
+    RULES
+      FirstName.ASK
+      LastName.ASK
+      DateofBirth.ASK
+      PhoneNumber.ASK
+      Town.ASK
+  ENDBLOCK
+
+
+  BLOCK BMovieExperience
+    FIELDS
+      MovieTheatre "What movie theatre did you go to?" : STRING, EMPTY
+      Travel "How did you travel to the movie theatre?" : SET [3] OF
+                 (PubTrans (1) "Public bus, tram or metro",
+                  Train    (2) "Train",
+                  Car      (3) "Car or motorcycle",
+                  Bicycle  (4) "Bicycle",
+                  Walk     (5) "Walk",
+                  Other    (9) "Other means of transport")
+      Miles "How many miles did you have to travel to the theatre?"
+        Help "If you enter a value above 1000 you will get a warning."
+        Watermark ""
+        ToolTip "Please enter the number of miles that you had to travel to get to the theatre": INTEGER, DONTKNOW
+      Movie "What movie did you see?" : TMOVIES
+      TicketCost "How much did your ticket cost?" 
+        Help "The price for one normal seat in a regular movie costs €8.50.
+              <newline>tickets for longer movies and premium seats may cost extra.
+              <newline>Please include any given discounts.
+              <newline>If you enter a value above €20.00 you will get an error."
+        Tooltip "Enter zero if your ticket was free."
+        Template "Currency": REAL, DONTKNOW
+      RateMovie "Please rate the movie": 1..5
+      ViewDate "When did you see ^Movie?" : DATETYPE
+      StartTime "At what time did the movie actually start?" : TIMETYPE, DONTKNOW
+      Discount "^Person.FirstName, would you like to have an discount coupon for your next visit?"
+        Help "This coupon is only valid for one week and cannot be combined with other promotions or discounts": TYesNo
+      
+    RULES
+      MovieTheatre.ASK
+      Travel.ASK
+      Miles.ASK
+      SIGNAL // Sets the checking mode to soft checking. 
+      Miles <= 1000 "Are you sure you have traveled more than a thousand miles to the theatre?  
+                     <newline>Use the 'Suppress' button to ignore the warning or enter a new value." // Soft check
+      CHECK // Resets the checking mode to hard checking.
+      Movie.ASK
+      TicketCost
+      TicketCost <= 20 // Hard Check
+      RateMovie.ASK
+      ViewDate.ASK
+      StartTime.ASK
+      Discount.KEEP // Make sure the field's data can be accessed while the field has not been asked yet
+      IF Discount= EMPTY THEN 
+         Discount:= No  // Preload the field
+      ENDIF
+      Discount.ASK
+  ENDBLOCK    
+
+  AUXFIELDS
+    Info "This fictitious questionnaire shows a selection of many out of the box 
+          <newline>possibilities of Blaise. <strong>This survey has been modified with custom elements</strong>
+          <font face='Arial' size='14' bold='false' italic='true' color='Navy'>
+          <newline count=2>Different types of questions are presented. 
+          At some questions a text should be filled in, at others an amount, a date, or a time. 
+          There is also a multiple choice question. Some questions must be filled in, others may remain empty. 
+          There are checks to flag a suspiciously high value and there is a field already preloaded. 
+          If a button marked with a ? resides next to the question, additional explanatory text is available.
+          <newline>You can make remarks at any question using Ctrl + M."
+      Template "QuestionTextOnly" : (Yes), EMPTY  // No response expected only informative text
+      
+  FIELDS
+    Person: BPerson
+    MovieExperience: BMovieExperience
+
+  RULES
+    Info.Show
+    Person.ASK
+    MovieExperience.ASK
+
+ENDMODEL
+
