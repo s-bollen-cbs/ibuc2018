@@ -5,12 +5,13 @@ import { FormsModule } from '@angular/forms';
 // google maps core
 import { AgmCoreModule } from '@agm/core';
 // Blaise imports
-import { BlaiseCoreModule, ModelService, ActionService } from '@blaise/core';
+import { BlaiseCoreModule, ModelService, ActionService, FontService } from '@blaise/core';
 // Environment variables
 import { environment } from '../environments/environment';
 // Custom services
 import { CustomModelService } from './services/custom-model/custom-model.service';
 import { CustomActionService } from './services/custom-action/custom-action.service';
+import { CustomFontService } from './services/custom-font/custom-font.service';
 import { MapService } from './services/map/map.service';
 // Custom components
 import { AppComponent } from './app.component';
@@ -40,6 +41,8 @@ import { MapComponent } from './components/map/map.component';
     providers: [
         { provide: ModelService, useClass: CustomModelService },
         { provide: ActionService, useClass: CustomActionService },
+        // Workaround for security update in browsers
+        { provide: FontService, useClass: CustomFontService },
         MapService
     ],
     bootstrap: [
