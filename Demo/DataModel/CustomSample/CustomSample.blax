@@ -37,14 +37,14 @@
         Watermark "(999)999-99-99" : STRING[14], REFUSAL
       DateofBirth "When is your birthday?"
         ToolTip "Please select your birth date" : DATETYPE
-      Town "Where do you live?": STRING, EMPTY
+      Location "Where do you live?": STRING, EMPTY
     
     RULES
       FirstName.ASK
       LastName.ASK
       DateofBirth.ASK
       PhoneNumber.ASK
-      Town.ASK
+      Location.ASK
   ENDBLOCK
 
 
