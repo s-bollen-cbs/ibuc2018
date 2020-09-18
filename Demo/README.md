@@ -2,11 +2,18 @@
 
 ## Prerequisites
 
-* Code/Text editor
-* Blaise 5.5 or higher
-* `NodeJS latest LTS` ([Download](https://nodejs.org/en/))
-* `NPM latest LTS` (installed alongside NodeJS, but updated more frequently)
-* `rimraf >= 2.6.2` (*optional*, install globally after NPM using "npm install rimraf -g" in a terminal)
+* `Code/Text editor`
+* `Blaise >= 5.6.x`
+* `NodeJS >= v12.x` ([Download latest LTS](https://nodejs.org/en/))
+* `NPM >= v6.x` (installed alongside NodeJS, but updated more frequently)
+* `@angular/cli >= v9.x` (*optional*, allows for usage of angular ng commands) 
+* `typescript >= v3.7.x` (*optional*)
+* `rimraf >= 3.x` (*optional*)
+* A code/text editor. Preferably one that supports syntax highlighting for Typescript.<br>Good options are [Visual Studio Code](https://code.visualstudio.com/), [Webstorm](https://www.jetbrains.com/webstorm/), [SublimeText](https://www.sublimetext.com/) and [Atom](https://atom.io/).
+* A basic understanding of
+	* [HTML5](https://developer.mozilla.org/nl/docs/Web/Guide/HTML/HTML5), [CSS3](https://developer.mozilla.org/nl/docs/Web/CSS/CSS3) and [Sass](https://sass-lang.com/)
+	* [Typescript](https://www.typescriptlang.org/) and/or [JavaScript ES6](https://developer.mozilla.org/nl/docs/Web/JavaScript) (they are very similar).
+	* [Angular](https://angular.io/). Follow [this tutorial](https://angular.io/tutorial) to get an introduction which covers the fundamentals of Angular.
 
 You can check your current NodeJS and NPM versions by opening a terminal and running the following commands:
 
